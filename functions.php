@@ -4,12 +4,15 @@
 function generate_password($length)
 {
     // con 'range' prendo i caratteri compresi
-    $characters = range('a', 'z') . range('A', 'Z') . range('0', '9');
+    $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     $password = "";
 
     // genero una password casuale
     for ($i = 0; $i < $length; $i++) {
-        $password .= $characters[rand(0, strlen($characters) - 1)];
+        $randomChar = $characters[rand(0, strlen($characters) - 1)];
+
+        // Concatena il carattere alla stringa $password
+        $password .= $randomChar;
     }
     return $password;
 }
