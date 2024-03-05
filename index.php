@@ -1,3 +1,22 @@
+<?php
+// recupero il file functions.php
+require_once __DIR__ . '/functions.php';
+
+
+// Verifica se la richiesta è di tipo GET, e se è stata fornita la lunghezza
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['length'])) {
+    // Ottieni la lunghezza dalla query string
+    $length = $_GET['length'];
+
+    // Genera la password utilizzando la funzione e reindirizza a password.php con la password come parametro
+    header("Location: password.php?password=" . generate_password($length));
+    exit();
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
